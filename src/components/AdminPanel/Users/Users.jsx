@@ -12,7 +12,7 @@ const Users = ({ users, onOpenModal }) => {
             <AddUserContainer />
             <div className="row justify-content-start">
                 {users.map(user => (
-                    <div className="col-4 mt-3 d-flex align-items-stretch" key={user.id}>
+                    <div className="col-md-4 mt-3 d-flex align-items-stretch" key={user.id}>
                         <div className="card" style={{width: "15rem"}}>
                             <div className="embed-responsive embed-responsive-1by1">
                                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgreen-shopper%2F1068%2Fuser.png&f=1&nofb=1" className="card-img-top embed-responsive-item" alt="article"/>

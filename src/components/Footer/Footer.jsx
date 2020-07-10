@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="footer-bottom" >
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 footer-copyright">
+                    <div className="col-sm-6 footer-copyright">
                         &copy; Bootstrap Template by Zaiyr Sharsheyev
                     </div>
-                    <div className="col-md-6 footer-social">
+                    <div className="col-sm-6 footer-social">
                         <a target="_blank" rel="noopener noreferrer" href="https://facebook.com"><i className="fab fa-facebook-f"/></a>
                         <a target="_blank" rel="noopener noreferrer" href="https://twitter.com"><i className="fab fa-twitter"/></a>
                         <a target="_blank" rel="noopener noreferrer" href="https://https://web.whatsapp.com/"><i className="fab fa-whatsapp"/></a>

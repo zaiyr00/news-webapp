@@ -12,7 +12,7 @@ const Articles = ({ articles, onOpenModal }) => {
             <AddArticleContainer/>
             <div className="row justify-content-start">
                 {articles.map(article => (
-                    <div className="col-4 mt-3 d-flex align-items-stretch" key={article.id}>
+                    <div className="col-md-4  mt-3 d-flex align-items-stretch" key={article.id}>
                         <div className="card" style={{width: "20rem"}}>
                             <div className="embed-responsive embed-responsive-4by3">
                                 <img src={article.image} className="card-img-top embed-responsive-item" alt="article"/>

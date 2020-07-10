@@ -12,7 +12,7 @@ const Categories = ({ categories, onOpenModal }) => {
             <AddCategoryContainer />
             <div className="row justify-content-start">
                 {categories.map(category => (
-                    <div className="col-4 mt-3 d-flex align-items-stretch" key={category.id}>
+                    <div className="col-md-4 mt-3 d-flex align-items-stretch" key={category.id}>
                         <div className="card" style={{width: "15rem"}}>
                             <div className="embed-responsive embed-responsive-1by1">
                                 <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.roofscreen.com%2Fmediafiles%2Fproduct_category_icons%2F34_strong-chain-icon.png&f=1&nofb=1" className="card-img-top embed-responsive-item" alt="article"/>

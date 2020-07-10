@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const NavbarClient = ({ categories, categoryIdHandler }) => {
 
@@ -13,7 +13,7 @@ const NavbarClient = ({ categories, categoryIdHandler }) => {
                 <ul className="navbar-nav mr-auto">
                     {categories.map(category => (
                         <li key={category.id} className="nav-item">
-                            <Link className="nav-link waves-effect waves-light" to={`/news/${category.id}`} onClick={() => categoryIdHandler(category.parent_id)}>{category.title}</Link>
+                            <NavLink activeClassName="active" className="nav-link waves-effect waves-light" to={`/news/${category.id}`} onClick={() => categoryIdHandler(category.parent_id)}>{category.title}</NavLink>
                         </li>
                     ))}
                 </ul>

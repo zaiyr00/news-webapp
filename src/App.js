@@ -30,11 +30,12 @@ const DefaultContainer = () => (
     <>
         <Navbar />
         <Switch>
-            <Route path="/news/" component={Client}/>
+            <Route exact path="/" render={() => (<Redirect to="/news" />)} />
+            <Route path="/news" component={Client}/>
             <Route path="/article/:id" exact component={NewsDetailContainer}/>
             {localStorage.getItem("user")
-                ? <Route path="/admin/" component={AdminPanel}/>
-                : <Redirect to="/news/" />
+                ? <Route path="/admin" component={AdminPanel}/>
+                : <Redirect to="/news" />
             }
             <Route path="*" component={Error}/>
         </Switch>

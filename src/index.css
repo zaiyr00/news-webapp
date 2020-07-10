@@ -20,3 +20,8 @@ code {
 {
   flex-grow:1!important;
 }
+
+.active {
+  color: #152aac;
+  font-weight: 600;
+}
