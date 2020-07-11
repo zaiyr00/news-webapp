@@ -174,7 +174,7 @@ const Modal = (props) => {
             <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={deleteCategoryHandler}>Удалить</button>
                 <button type="button" className="btn btn-secondary" onClick={openEditorHandler}>Изменить</button>
-                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => closeModalHandler("category")}>Закрыть</button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => closeModalHandler("category", category)}>Закрыть</button>
             </div>
         </div>
     )
@@ -209,15 +209,14 @@ const Modal = (props) => {
     )
 
     let sectionChecker = () => {
-        if(category && !isEdit) return categoryModal();
-        if(user && !isEdit) return userModal();
-        if(article && !isEdit) return articleModal();
-
+        if(category.title !== undefined && !isEdit && ((user.username === undefined || user.username === '') && (article.title === undefined || article.title === ''))) return categoryModal();
+        if(user.username !== undefined && !isEdit && ((category.title === undefined || category.title === '') && (article.title === undefined || article.title === ''))) return userModal();
+        if(article.title !== undefined && !isEdit && ((category.title === undefined || category.title === '') && (user.username === undefined || user.username === ''))) return articleModal();
+        debugger
         if(isEdit && category) return editCategoryModal();
         if(isEdit && user) return editUserModal();
         if(isEdit && article) return editArticleModal();
     }
-
 
     return (
         <div className="modal hide fade in" id="exampleModalCenter" tabIndex="-1" role="dialog" data-keyboard="false" data-backdrop="static"

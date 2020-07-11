@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 
 import AddUser from "./AddUser";
-import {createUserThunkCreator, editUserHandlerActionCreator } from "../../../../redux/reducers/admin-panel-reducer";
+import {
+    createUserThunkCreator,
+    editUserHandlerActionCreator
+} from "../../../../redux/reducers/admin-panel-reducer";
 
 class AddUserContainer extends Component {
 
@@ -13,7 +16,8 @@ class AddUserContainer extends Component {
 
     render() {
         return <AddUser
-            user={this.props.user}
+            username={this.props.username}
+            password={this.props.password}
             editUserHandler={this.props.editUserHandler}
             createUserHandler={this.createUserHandler}
         />
@@ -21,7 +25,8 @@ class AddUserContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.adminPage.user
+    username: state.adminPage.user.username,
+    password: state.adminPage.user.password
 })
 
 const mapDispatchToProps = (dispatch) => {
@@ -31,7 +36,10 @@ const mapDispatchToProps = (dispatch) => {
         },
         createUserHandler: () => {
             dispatch(createUserThunkCreator())
-        }
+        },
+        // getUsers: () => {
+        //     dispatch(getUsersThunkCreator())
+        // }
     }
 }
 

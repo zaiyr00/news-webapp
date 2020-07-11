@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddCategory = ({ category, editCategoryHandler, createCategoryHandler }) => {
+const AddCategory = ({ title, editCategoryHandler, createCategoryHandler }) => {
     return (
         <div className="row mb-2 d-flex justify-content-center">
             <div className="col-sm-6">
@@ -13,7 +13,7 @@ const AddCategory = ({ category, editCategoryHandler, createCategoryHandler }) =
                                 placeholder="Название категории"
                                 name="username"
                                 minLength="3"
-                                value={category.title}
+                                value={title || ''}
                                 onChange={(e) => editCategoryHandler(e.target.value)}
                             />
                         </div>
@@ -21,7 +21,7 @@ const AddCategory = ({ category, editCategoryHandler, createCategoryHandler }) =
 
                     <div className="form-row">
                         <div className="col">
-                            <button type="submit" disabled={!(category.title && (category.title.length >= 3))} className="btn btn-primary btn-block" onClick={createCategoryHandler}>Создать категорию</button>
+                            <button type="submit" disabled={!(title && (title.length >= 3))} className="btn btn-primary btn-block" onClick={createCategoryHandler}>Создать категорию</button>
                         </div>
                     </div>
                 </form>

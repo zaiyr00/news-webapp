@@ -6,6 +6,7 @@ import {
     getUsersThunkCreator,
     setOpenModalActionCreator
 } from "../../../redux/reducers/admin-panel-reducer";
+import AddUserContainer from "./AddUser/AddUserContainer";
 
 class UsersContainer extends Component {
 
@@ -14,10 +15,15 @@ class UsersContainer extends Component {
     }
 
     render() {
-        return <Users
-            users={this.props.users}
-            onOpenModal={this.props.setOpenModal}
-        />;
+        return (
+            <>
+                <AddUserContainer />
+                <Users
+                    users={this.props.users}
+                    onOpenModal={this.props.setOpenModal}
+                />
+            </>
+        )
     }
 }
 

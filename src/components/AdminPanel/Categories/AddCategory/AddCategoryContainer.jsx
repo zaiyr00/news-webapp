@@ -16,7 +16,7 @@ class AddCategoryContainer extends Component {
 
     render() {
         return <AddCategory
-            category={this.props.category}
+            title={this.props.title}
             editCategoryHandler={this.props.editCategoryHandler}
             createCategoryHandler={this.createCategoryHandler}
         />
@@ -24,7 +24,7 @@ class AddCategoryContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    category: state.adminPage.category
+    title: state.adminPage.category.title
 })
 
 const mapDispatchToProps = (dispatch) => {

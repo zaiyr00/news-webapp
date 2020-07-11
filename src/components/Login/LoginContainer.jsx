@@ -23,8 +23,10 @@ class LoginContainer extends Component {
                 localStorage.setItem("user", JSON.stringify(user))
                 this.props.history.push("/admin");
             }
+            return false;
         })
     }
+
 
     changeHandler = event => {
         const nameField = event.target.name;

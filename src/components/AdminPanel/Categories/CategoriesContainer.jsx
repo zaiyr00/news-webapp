@@ -6,6 +6,7 @@ import {
     getCategoriesThunkCreator,
     setOpenModalActionCreator
 } from "../../../redux/reducers/admin-panel-reducer";
+import AddCategoryContainer from "./AddCategory/AddCategoryContainer";
 
 class CategoriesContainer extends Component {
 
@@ -14,10 +15,15 @@ class CategoriesContainer extends Component {
     }
 
     render() {
-        return <Categories
-            categories={this.props.categories}
-            onOpenModal={this.props.setOpenModal}
-        />
+        return (
+            <>
+                <AddCategoryContainer />
+                <Categories
+                categories={this.props.categories}
+                onOpenModal={this.props.setOpenModal}
+                />
+            </>
+        )
     }
 }
 

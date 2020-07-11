@@ -13,7 +13,7 @@ const AddArticle = ({ article, editArticleHandler, createArticleHandler, select,
                                 className="form-control"
                                 placeholder="Название статьи"
                                 name="title"
-                                value={article.title}
+                                value={article.title || ''}
                                 onChange={(e) => editArticleHandler(e.target.name, e.target.value)}
                             />
                         </div>
@@ -23,7 +23,7 @@ const AddArticle = ({ article, editArticleHandler, createArticleHandler, select,
                                 className="form-control"
                                 placeholder="Ссылка на картинку статьи"
                                 name="image"
-                                value={article.image}
+                                value={article.image || ''}
                                 onChange={(e) => editArticleHandler(e.target.name, e.target.value)}
                             />
                         </div>
@@ -46,7 +46,7 @@ const AddArticle = ({ article, editArticleHandler, createArticleHandler, select,
                                 className="form-control"
                                 placeholder="Описание статьи"
                                 name="description"
-                                value={article.description}
+                                value={article.description || ''}
                                 onChange={(e) => editArticleHandler(e.target.name, e.target.value)}
                             />
                         </div>

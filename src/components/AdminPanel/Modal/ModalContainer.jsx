@@ -78,8 +78,8 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(updateArticleThunkCreator())
         },
 
-        closeModalHandler: (nameField) => {
-            dispatch(closeModalHandlerActionCreator(nameField))
+        closeModalHandler: (nameField, values) => {
+            dispatch(closeModalHandlerActionCreator(nameField, values))
         },
 
         deleteUserHandler: () => {

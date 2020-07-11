@@ -39,7 +39,7 @@ const adminPanelReducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: action.users,
+                users: action.users
             }
         case SET_CATEGORIES:
             return {
@@ -114,7 +114,7 @@ const setCategoriesActionCreator = (categories) => ({type: SET_CATEGORIES, categ
 
 //Modal Window
 export const setOpenModalActionCreator = (payload, nameField) => ({type: SET_OPEN_MODAL, payload, nameField})
-export const closeModalHandlerActionCreator = (nameField) => ({type: SET_CLOSE_MODAL, nameField})
+export const closeModalHandlerActionCreator = (nameField, values) => ({type: SET_CLOSE_MODAL, nameField, values})
 
 // User
 export const deleteUserThunkCreator = () => async (dispatch, getState) => {
@@ -135,9 +135,11 @@ export const updateUserThunkCreator = () => async (dispatch, getState) => {
     dispatch(getUsersThunkCreator());
 }
 export const createUserThunkCreator = () => async (dispatch, getState) => {
-    const { user } = getState().adminPage;
+    let { user } = getState().adminPage;
     await usersAPI.createUser(user);
     dispatch(getUsersThunkCreator());
+    user.username = ""
+    user.password = ""
 }
 
 // Category
@@ -150,7 +152,7 @@ export const createCategoryThunkCreator = () => async (dispatch, getState) => {
     }
     await categoriesAPI.createCategory(cat);
     dispatch(getCategoriesThunkCreator());
-    getState().adminPage.category = "";
+    getState().adminPage.category.title = "";
 }
 export const updateCategoryThunkCreator = () => async (dispatch, getState) => {
     const { category } = getState().adminPage;
@@ -170,7 +172,7 @@ const setCategoryActionCreator = (category) => ({type: SET_CATEGORY, category})
 export const editArticleActionCreator = (nameField, value) => ({type: SET_EDIT_ARTICLE, nameField, value })
 export const createArticleThunkCreator = () => async (dispatch, getState) => {
     const { categories } = getState().newsPage;
-    const { article, select } = getState().adminPage;
+    let { article, select } = getState().adminPage;
     let { parent_id } = categories.find(category => (category.title === select) ? category.parent_id : null);
 
     const { id } = JSON.parse(localStorage.getItem("user"));
@@ -181,7 +183,9 @@ export const createArticleThunkCreator = () => async (dispatch, getState) => {
     }
     await articlesAPI.createArticle(obj);
     dispatch(getArticlesThunkCreator());
-    getState().adminPage.article = "";
+    article.title = "";
+    article.image = "";
+    article.description = "";
 }
 export const updateArticleThunkCreator = () => async (dispatch, getState) => {
     const { article } = getState().adminPage;

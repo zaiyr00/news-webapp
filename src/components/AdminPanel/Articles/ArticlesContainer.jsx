@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import Articles from "./Articles";
 import {getArticlesThunkCreator} from "../../../redux/reducers/client-reducer";
 import {setOpenModalActionCreator} from "../../../redux/reducers/admin-panel-reducer";
+import AddArticleContainer from "./AddArticle/AddArticleContainer";
 
 class ArticlesContainer extends Component {
 
@@ -12,11 +13,16 @@ class ArticlesContainer extends Component {
     }
 
     render() {
-        return <Articles
-            articles={this.props.articles}
-            deleteArticle={this.props.deleteArticle}
-            onOpenModal={this.props.setOpenModal}
-        />;
+        return (
+            <>
+                <AddArticleContainer/>
+                <Articles
+                    articles={this.props.articles}
+                    deleteArticle={this.props.deleteArticle}
+                    onOpenModal={this.props.setOpenModal}
+                />
+            </>
+            )
     }
 }
 

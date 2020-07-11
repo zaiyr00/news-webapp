@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddUser = ({ user, editUserHandler, createUserHandler }) => {
+const AddUser = ({ username, password, editUserHandler, createUserHandler }) => {
     return (
         <div className="row mb-2 d-flex justify-content-center">
             <div className="col-sm-6">
@@ -13,7 +13,7 @@ const AddUser = ({ user, editUserHandler, createUserHandler }) => {
                                 placeholder="Имя пользователя"
                                 name="username"
                                 minLength="6"
-                                value={user.username}
+                                value={username || ''}
                                 onChange={(e) => editUserHandler(e.target.name, e.target.value)}
                             />
                         </div>
@@ -24,7 +24,7 @@ const AddUser = ({ user, editUserHandler, createUserHandler }) => {
                                 placeholder="Пароль"
                                 name="password"
                                 minLength="6"
-                                value={user.password}
+                                value={password || ''}
                                 onChange={(e) => editUserHandler(e.target.name, e.target.value)}
                             />
                         </div>
@@ -32,7 +32,7 @@ const AddUser = ({ user, editUserHandler, createUserHandler }) => {
 
                     <div className="form-row">
                         <div className="col">
-                            <button type="submit" disabled={!(user.username && user.password && (user.username.length >=6 && user.password.length >= 6))} className="btn btn-primary btn-block" onClick={createUserHandler}>Создать пользователя</button>
+                            <button type="submit" disabled={!(username && password && (username.length >=6 && password.length >= 6))} className="btn btn-primary btn-block" onClick={createUserHandler}>Создать пользователя</button>
                         </div>
                     </div>
                 </form>

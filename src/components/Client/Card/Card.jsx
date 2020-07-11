@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 const Card = ({ article }) => {
 
     return (
-        <div className="col-md-4 mt-2 d-flex align-items-stretch mb-4">
+        <div className="col-md-4 mt-2 d-flex align-items-stretch mb-4 justify-content-center">
             <div className="card" style={{width: "20rem"}}>
                 <div className="embed-responsive embed-responsive-4by3">
                     <img src={article.image} className="card-img-top embed-responsive-item" alt="article"/>

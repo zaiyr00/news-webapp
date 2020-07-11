@@ -9,7 +9,7 @@ const News = ({ articles }) => {
 
     return (
         <div className="container">
-            <div className="row justify-content-start">
+            <div className="row justify-content-md-start">
                 {articles.map(article => (
                     <Card article={article} key={article.id}/>
                 ))}
